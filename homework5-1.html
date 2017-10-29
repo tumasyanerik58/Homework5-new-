@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style >
+    #canvas {
+      border: solid 1px black;
+    }
+  </style>
+  <title>Homework</title>
+</head>
+<body>
+
+
+
+
+<canvas id= "canvas"></canvas>
+    <script>
+     const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  
+  const createPoints = function(count, cnvsW, cnvsH){
+    
+    const rand = function(num) {
+    return Math.floor(Math.random() * num) - 1;
+    };
+    
+    canvas.width = cnvsW;
+    canvas.height = cnvsH;
+    
+    
+    point = {
+      
+      w: 10,
+      h: 10,
+      x: (cnvsW-10),
+      y: (cnvsH-10)
+       
+    };
+    
+    const draw = function(){
+        ctx.fillStyle = 'red';
+        ctx.fillRect(rand(point.x),rand(point.y),point.w, point.h)
+    };
+    
+    const loop = function(){
+      draw();
+      
+      requestAnimationFrame(loop);
+    };
+    
+    const helper = function(count){
+      if(count === 0 ){
+        return;
+      };
+      
+      draw();
+      helper(count-1);
+      
+    };
+    
+    helper(count);
+    
+    
+    
+    
+    
+    };            
+           
+                                    
+  createPoints(15, 500, 500);         
+
+    </script>
+</body>
+ 
+</html>
